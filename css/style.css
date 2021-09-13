@@ -40,6 +40,8 @@ body {
   justify-content: center;
 }
 .single-product {
+  height: 585px;
+  margin: 10px;
   padding: 10px;
   transition: 0.6s;
 }
