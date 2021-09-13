@@ -1,3 +1,4 @@
+// products data (start)
 const loadProducts = () => {
   const data = [
   { "id": 1, "title": "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops", "price": 109.95, "description": "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday", "category": "men's clothing", "image": "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg", "rating": { "rate": 3.9, "count": 120 } },
@@ -42,9 +43,9 @@ const loadProducts = () => {
   
   showProducts(data); 
 };
-// products data
+// products data (end)
 
-// Show all product in UI 
+// Show all product in UI (start)
 const showProducts = (products) => {
   const allProducts = products.map((pd) => pd);
   for (const product of allProducts) {
@@ -66,8 +67,9 @@ const showProducts = (products) => {
     document.getElementById("all-products").appendChild(div);
   }
 };
+// Show all product in UI (end)
 
-// Cart updates
+// Cart updates (start)
 let count = 0; // intial value
 const addToCart = (id, price) => {
   count = count + 1;
@@ -77,6 +79,7 @@ const addToCart = (id, price) => {
   document.getElementById("total-Products").innerText = count;
 };
 
+// takes price, tax, delivary charge values and converts them
 const getInputValue = (id) => {
   const element = document.getElementById(id).innerText;
   const converted = parseFloat(element); // decimal
@@ -86,7 +89,7 @@ const getInputValue = (id) => {
 // main price update function
 const updatePrice = (id, value) => {
   const convertedOldPrice = getInputValue(id);
-  const convertPrice = parseFloat(value);
+  const convertPrice = parseFloat(value); // decimal
   const total = convertedOldPrice + convertPrice;
   document.getElementById(id).innerText = Math.round((total + Number.EPSILON) * 100) / 100;
 };
@@ -121,6 +124,7 @@ const updateTotal = () => {
   const grandTotal = getInputValue("price") + getInputValue("delivery-charge") + getInputValue("total-tax");
   document.getElementById("total-amount").innerText = Math.round((grandTotal + Number.EPSILON) * 100) / 100;
 };
+// Cart updates (end)
 
 // Load Products on website
 loadProducts();
